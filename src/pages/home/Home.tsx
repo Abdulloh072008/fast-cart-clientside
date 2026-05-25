@@ -16,9 +16,10 @@ import Cards from "../../components/shared/Cards";
 import Newarrival from "../../components/shared/Newarrival";
 import Card from "../../components/shared/Card";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-
+  const { t } = useTranslation();
   const dispatch = useDispatch()
   const products = useSelector(({ products }) => products.products);
 
@@ -66,7 +67,7 @@ const Home = () => {
 
           <div className="mt-10">
             <Link to={"/filtercategory"}>
-              <Button className="bg-[#DB4444] px-20 py-6  lg:m-auto lg:flex">View All Products</Button>
+              <Button className="bg-[#DB4444] px-20 py-6  lg:m-auto lg:flex">{t('home.view_all_products')}</Button>
             </Link>
           </div>
         </section>
@@ -81,13 +82,13 @@ const Home = () => {
           <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-[1170px] mx-auto font-sans select-none px-4 md:px-6 lg:px-0">
             <div className="flex items-center gap-3 sm:gap-4">
               <div className="w-4 sm:w-5 h-8 sm:h-10 bg-[#DB4444] rounded" />
-              <span className="text-[#DB4444] font-semibold text-sm sm:text-base leading-none">This Month</span>
+              <span className="text-[#DB4444] font-semibold text-sm sm:text-base leading-none">{t('home.this_month')}</span>
             </div>
 
             <div className="flex lg:items-center gap-5 items-start flex-col lg:flex-row justify-between w-full">
-              <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider text-foreground leading-none">Best Selling Products</h2>
+              <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider text-foreground leading-none">{t('home.best_selling')}</h2>
               <Button className="bg-[#DB4444] hover:bg-[#C23B3B] text-white font-medium text-xs  lg:text-base px-6 sm:px-10 py-4  lg:py-6  rounded transition-colors duration-200">
-                View All
+                {t('home.view_all')}
               </Button>
             </div>
           </div>
@@ -118,14 +119,14 @@ const Home = () => {
         <section className="max-w-[1170px] m-auto w-[90%] mt-15">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-4 sm:w-5 h-8 sm:h-10 bg-[#DB4444] rounded" />
-            <span className="text-[#DB4444] font-semibold text-sm sm:text-base leading-none">Our Products</span>
+            <span className="text-[#DB4444] font-semibold text-sm sm:text-base leading-none">{t('home.our_products')}</span>
           </div>
-          <h2 className="mb-5 mt-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider text-foreground leading-none">Explore Our Products</h2>
+          <h2 className="mb-5 mt-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider text-foreground leading-none">{t('home.explore_our_products')}</h2>
 
           <Cards limit={8} />
 
           <Link to="/filtercategory">
-            <Button className="bg-[#DB4444] px-10 py-6 m-auto mt-10 flex ">View All Products</Button>
+            <Button className="bg-[#DB4444] px-10 py-6 m-auto mt-10 flex ">{t('home.view_all_products')}</Button>
           </Link>
         </section>
 

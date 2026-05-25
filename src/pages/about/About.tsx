@@ -16,6 +16,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { getImageUrl } from "@/lib/utils";
 
 // Import AOS styles and library
 import AOS from 'aos';
@@ -84,7 +85,7 @@ export default function AboutPage() {
         </div>
         <div className="w-full md:w-[48%] h-[400px] md:h-[500px]">
           <img 
-            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop" 
+            src={getImageUrl("https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop")} 
             alt="Two women smiling with colorful shopping bags" 
             className="w-full h-full object-cover rounded-sm grayscale-[0.2] dark:grayscale-[0.4]"
           />
@@ -161,7 +162,7 @@ export default function AboutPage() {
               <div className="flex flex-col w-full">
                 <div className="bg-muted rounded-t flex justify-center items-end h-[430px] pt-8">
                   <img 
-                    src={member.image} 
+                    src={getImageUrl(member.image)} 
                     alt={member.name} 
                     className="max-h-full object-contain dark:opacity-80 transition-opacity" 
                   />

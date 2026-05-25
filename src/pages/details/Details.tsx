@@ -11,6 +11,7 @@ import type { RootState } from "../../store/store";
 import { axiosRequest } from "../../utils/token";
 import { addToCart, updateQuantity } from "../../reducer/Cartslice";
 import { toggleWishlist } from "../../reducer/Wishlistslice";
+import { getImageUrl } from "@/lib/utils";
 
 export interface Product {
   id: number;
@@ -137,14 +138,14 @@ const Details = () => {
                 className={`w-[110px] h-[110px] py-2 px-2 border ${selectedImage === i ? "border-[#DB4444]" : "border-transparent"
                   }`}
               >
-                <img src={img} className="w-full h-full object-contain" />
+                <img src={getImageUrl(img)} className="w-full h-full object-contain" />
               </button>
             ))}
           </div>
 
           <div className="lg:w-[400px] lg:h-[510px] h-[400px] px-3 bg-[#F5F5F5] flex items-center justify-center">
             <img
-              src={product.images?.[selectedImage] ?? product.image}
+              src={getImageUrl(product.images?.[selectedImage] ?? product.image)}
               className="w-full h-full object-contain"
             />
           </div>

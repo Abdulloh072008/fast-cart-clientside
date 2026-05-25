@@ -6,19 +6,19 @@ import { NavLink } from "react-router";
 const navLists = [
     {
         path: "/",
-        title: "Home",
+        title: "home",
     },
     {
         path: "/contact",
-        title: "Contact",
+        title: "contact",
     },
     {
         path: "/about",
-        title: "About",
+        title: "about",
     },
     {
         path: "/signup",
-        title: "Sign Up",
+        title: "signup",
     },
 ];
 
@@ -40,11 +40,11 @@ const Navlist = memo(({ setOpen }: INavList) => {
 
                         })}
                         className="py-2 px-5 w-full lg:w-auto lg:text-center hover:text-primary transition-colors text-foreground/70 active:text-foreground"
-                        key={t(navList.title)}
+                        key={t(`nav.${navList.title}`)}
                         to={navList.path}
                         onClick={() => setOpen && setOpen(false)}
                     >
-                        {t(navList.title)}
+                        {t(`nav.${navList.title}`)}
                     </NavLink>
                 ))}
             </div>

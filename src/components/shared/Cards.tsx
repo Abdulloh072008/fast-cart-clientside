@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../reducer/Cartslice";
 import { toggleWishlist } from "../../reducer/Wishlistslice";
 import type { RootState } from "../../store/store";
+import { getImageUrl } from "@/lib/utils";
 
 const Cards = ({ limit }) => {
     const dispatch = useDispatch()
@@ -77,7 +78,7 @@ const Cards = ({ limit }) => {
                             >
                                 <div className="relative bg-muted h-52 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src={product.image}
+                                        src={getImageUrl(product.image)}
                                         alt={product.productName}
                                         className="object-contain h-full w-full p-4 transition-transform duration-300 group-hover:scale-105"
                                     />

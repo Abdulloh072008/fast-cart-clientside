@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { fetchProfile, saveProfile } from "../../api/Myaccountapi";
 import type { AppDispatch, RootState } from "../../store/store";
-
-const IMAGE_BASE = `${import.meta.env.VITE_API_URL}/images/`;
+import { getImageUrl } from "@/lib/utils";
 
 const MyAccount = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -91,7 +90,7 @@ const MyAccount = () => {
                     <div className="flex items-center gap-4 mb-6">
                         {profile.image ? (
                             <img
-                                src={`${IMAGE_BASE}${profile.image}`}
+                                src={getImageUrl(profile.image)}
                                 alt="avatar"
                                 className="w-16 h-16 rounded-full object-cover border-2 border-[#DB4444]"
                             />

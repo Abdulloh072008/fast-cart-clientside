@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import logo from "../../assets/img/Frame 834.png"
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../reducer/Cartslice";
+import { getImageUrl } from "@/lib/utils";
 
 const Checkout = () => {
 
@@ -90,7 +91,7 @@ const Checkout = () => {
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <img src={item.image} alt={item.productName} className="w-12 h-12 object-contain" />
+                  <img src={getImageUrl(item.image)} alt={item.productName} className="w-12 h-12 object-contain" />
                   <span className="text-sm font-medium">{item.productName}</span>
                 </div>
                 <span className="text-sm font-medium">

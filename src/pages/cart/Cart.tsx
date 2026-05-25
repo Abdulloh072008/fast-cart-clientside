@@ -12,6 +12,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+import { getImageUrl } from "@/lib/utils";
+
 import {
   Table,
   TableBody,
@@ -87,7 +89,7 @@ export default function Cart() {
                   <TableCell>
                     <div className="flex items-center gap-4">
                       <img
-                        src={item.image}
+                        src={getImageUrl(item.image)}
                         alt={item.productName}
                         className="w-16 h-16 object-contain"
                       />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
 
 interface CountdownTime {
     days: number
@@ -8,6 +9,7 @@ interface CountdownTime {
 }
 
 export default function Flashsales() {
+    const { t } = useTranslation();
     const [timeLeft, setTimeLeft] = useState<CountdownTime>({
         days: 3,
         hours: 23,
@@ -59,15 +61,15 @@ export default function Flashsales() {
         <div className="flex flex-col gap-6 font-sans select-none">
             <div className="flex items-center gap-4">
                 <div className="w-5 h-10 bg-[#DB4444] rounded" />
-                <span className="text-[#DB4444] font-semibold text-base leading-none">Today's</span>
+                <span className="text-[#DB4444] font-semibold text-base leading-none">{t('home.todays')}</span>
             </div>
 
             <div className="flex lg:flex-row lg:items-end flex-col gap-5 lg:gap-12">
-                <h2 className="text-4xl font-bold tracking-wider text-foreground leading-none">Flash Sales</h2>
+                <h2 className="text-4xl font-bold tracking-wider text-foreground leading-none">{t('home.flash_sales')}</h2>
 
                 <div className="flex items-center gap-4 h-12">
                     <div className="flex flex-col">
-                        <span className="text-xs font-medium text-foreground mb-1">Days</span>
+                        <span className="text-xs font-medium text-foreground mb-1">{t('home.days')}</span>
                         <span className="text-3xl font-bold tracking-wider text-foreground leading-none">
                             {formatNumber(timeLeft.days)}
                         </span>
@@ -76,7 +78,7 @@ export default function Flashsales() {
                     <span className="text-2xl font-bold text-[#E07575] self-end mb-1">:</span>
 
                     <div className="flex flex-col">
-                        <span className="text-xs font-medium text-foreground mb-1">Hours</span>
+                        <span className="text-xs font-medium text-foreground mb-1">{t('home.hours')}</span>
                         <span className="text-3xl font-bold tracking-wider text-foreground leading-none">
                             {formatNumber(timeLeft.hours)}
                         </span>
@@ -85,7 +87,7 @@ export default function Flashsales() {
                     <span className="text-2xl font-bold text-[#E07575] self-end mb-1">:</span>
 
                     <div className="flex flex-col">
-                        <span className="text-xs font-medium text-foreground mb-1">Minutes</span>
+                        <span className="text-xs font-medium text-foreground mb-1">{t('home.minutes')}</span>
                         <span className="text-3xl font-bold tracking-wider text-foreground leading-none">
                             {formatNumber(timeLeft.minutes)}
                         </span>
@@ -94,7 +96,7 @@ export default function Flashsales() {
                     <span className="text-2xl font-bold text-[#E07575] self-end mb-1">:</span>
 
                     <div className="flex flex-col">
-                        <span className="text-xs font-medium text-foreground mb-1">Seconds</span>
+                        <span className="text-xs font-medium text-foreground mb-1">{t('home.seconds')}</span>
                         <span className="text-3xl font-bold tracking-wider text-foreground leading-none">
                             {formatNumber(timeLeft.seconds)}
                         </span>

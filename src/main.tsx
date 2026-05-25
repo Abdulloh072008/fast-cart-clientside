@@ -5,6 +5,7 @@ import App from './App.tsx'
 import { Provider } from 'react-redux'
 import { store } from './store/store.ts'
 import { ThemeProvider } from './components/shared/theme-provider/ThemeProvider.tsx'
+import './i18n'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

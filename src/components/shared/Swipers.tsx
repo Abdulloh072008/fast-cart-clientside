@@ -4,6 +4,7 @@ import img from "../../assets/img/hero_endframe__cvklg0xk3w6e_large 2-1.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { getImageUrl } from "@/lib/utils";
 
 const slidesData = [
   {
@@ -105,7 +106,7 @@ export default function Swipers() {
 
               <div className="w-full sm:w-1/2 flex items-center justify-center sm:justify-end mt-4 sm:mt-0">
                 <img 
-                  src={slide.imgSrc} 
+                  src={getImageUrl(slide.imgSrc)} 
                   alt={slide.imgAlt} 
                   className=" sm:w-auto h-auto sm:h-[220px] md:h-[300px] object-contain drop-shadow-[0_20px_20px_rgba(255,255,255,0.05)]"
                 />

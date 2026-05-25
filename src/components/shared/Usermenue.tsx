@@ -10,8 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { logout } from "../../reducer/Myaccountslice";
 import type { AppDispatch, RootState } from "../../store/store";
-
-const IMAGE_BASE = `${import.meta.env.VITE_API_URL}/images/`;
+import { getImageUrl } from "@/lib/utils";
 
 const UserMenu = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -37,7 +36,7 @@ const UserMenu = () => {
         if (profile?.image)
             return (
                 <img
-                    src={`${IMAGE_BASE}${profile.image}`}
+                    src={getImageUrl(profile.image)}
                     alt="avatar"
                     className="w-8 h-8 rounded-full object-cover border-2 border-[#DB4444]"
                 />

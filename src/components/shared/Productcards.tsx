@@ -6,6 +6,7 @@ import { addToCart } from "../../reducer/Cartslice";
 import { toggleWishlist } from "../../reducer/Wishlistslice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
+import { getImageUrl } from "@/lib/utils";
 
 const discountPercent = (original: number, discounted: number) =>
     Math.round(((original - discounted) / original) * 100);
@@ -42,7 +43,7 @@ const ProductCard = ({ product }) => {
                 <Card className="group border border-border -py-5 rounded-lg cursor-pointer hover:shadow-md transition-shadow duration-300 overflow-hidden bg-card">
                     <div className="relative bg-muted h-52 flex items-center justify-center overflow-hidden">
                         <img
-                            src={product.image}
+                            src={getImageUrl(product.image)}
                             alt={product.productName}
                             className="object-contain h-full w-full p-4 transition-transform duration-300 group-hover:scale-105"
                         />
