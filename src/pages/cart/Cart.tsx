@@ -9,10 +9,10 @@ import {
 
 import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
 
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "../../lib/utils";
 
 import {
   Table,
@@ -21,7 +21,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "../../components/ui/table";
 
 import { ChevronUp, ChevronDown, X } from "lucide-react";
 

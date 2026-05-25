@@ -6,7 +6,7 @@ import { Skeleton } from "../../components/ui/skeleton";
 import type { RootState } from "../../store/store";
 
 interface Product {
-    id: number;
+    id: number | string;
     title?: string;
     price?: number;
     image?: string;
@@ -102,7 +102,7 @@ const Wishlist = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {wishlistItems.map((item: Product) => (
+                    {wishlistItems.map((item) => (
                         <ProductCard key={item.id} product={item} />
                     ))}
                 </div>
@@ -125,7 +125,7 @@ const Wishlist = () => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row flex-wrap gap-6">
-                        {randomProducts.map((product: Product) => (
+                        {randomProducts.map((product) => (
                             <div
                                 key={product.id}
                                 className="w-full sm:w-[calc(33%-12px)] lg:w-[calc(25%-18px)]"

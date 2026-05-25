@@ -1,19 +1,15 @@
+import { Button } from "../../components/ui/button"
+import { ArrowLeft, ArrowRight, Building2, Monitor, ShoppingBag, Smartphone, Watch } from "lucide-react"
 import * as React from "react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Autoplay } from "swiper/modules"
-import { Button } from "@/components/ui/button"
 import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
-import {
-  Smartphone, Monitor, Watch, Camera, Headphones,
-  Gamepad2, Volume2, ShoppingBag, Building2
-} from "lucide-react"
 import "swiper/css"
 import "swiper/css/navigation"
-import type { AppDispatch, RootState } from "../../store/store"
+import { Autoplay, Navigation } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
 import { getBrands } from "../../api/Brandapi"
-import { useTranslation } from "react-i18next"
+import type { AppDispatch, RootState } from "../../store/store"
 
 const BRAND_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   apple: Watch,

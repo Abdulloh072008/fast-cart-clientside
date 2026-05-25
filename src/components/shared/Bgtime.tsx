@@ -1,6 +1,6 @@
 import * as React from "react"
 import AOS from "aos"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../components/ui/button"
 import "aos/dist/aos.css"
 import bg from "../../assets/img/Frame 694-1.png"
 

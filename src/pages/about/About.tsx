@@ -1,38 +1,30 @@
-import React, { useEffect } from 'react';
-import { 
-  Store, 
-  DollarSign, 
-  ShoppingBag, 
-  Coins, 
-  Truck, 
-  Headphones, 
-  CheckCircle2 
+import {
+  Coins,
+  DollarSign,
+  ShoppingBag,
+  Store
 } from 'lucide-react';
+import { useEffect } from 'react';
 
-// Import Swiper React components and required modules
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
+import { getImageUrl } from "../../lib/utils";
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { getImageUrl } from "@/lib/utils";
 
-// Import AOS styles and library
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Card from '../../components/shared/Card';
 
 export default function AboutPage() {
-  // Initialize AOS animation library
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration in ms
-      once: true,     // Whether animation should happen only once while scrolling down
+      duration: 1000, 
+      once: true,     
     });
   }, []);
 
-  // Celebrity Data Array
   const celebrities = [
     {
       id: 1,

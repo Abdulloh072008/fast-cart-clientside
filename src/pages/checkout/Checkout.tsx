@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Checkbox } from "../../components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
+import { Label } from "../../components/ui/label";
 import logo from "../../assets/img/Frame 834.png"
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../reducer/Cartslice";
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "../../lib/utils";
 
 const Checkout = () => {
 

@@ -3,11 +3,11 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Slider } from "@/components/ui/slider";
+} from "../../components/ui/accordion";
+import { Button } from "../../components/ui/button";
+import { Checkbox } from "../../components/ui/checkbox";
+import { Input } from "../../components/ui/input";
+import { Slider } from "../../components/ui/slider";
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -178,13 +178,12 @@ export default function FilterSidebar({ categoryId, onApply }: FilterSidebarProp
     selectedColors.length +
     (priceRange[0] > 0 || priceRange[1] < 100000 ? 1 : 0);
 
-  // Determine which categories/brands to show
-  const visibleCategories = showAllCategories
-    ? uniqueCategories
-    : uniqueCategories.slice(0, INITIAL_SHOW);
-  const visibleBrands = showAllBrands
-    ? uniqueBrands
-    : uniqueBrands.slice(0, INITIAL_SHOW);
+  // const visibleCategories = showAllCategories
+  //   ? uniqueCategories
+  //   : uniqueCategories.slice(0, INITIAL_SHOW);
+  // const visibleBrands = showAllBrands
+  //   ? uniqueBrands
+  //   : uniqueBrands.slice(0, INITIAL_SHOW);
 
   return (
     <div className="w-full lg:w-[240px]">

@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent } from "../../components/ui/card";
 import { Eye, Heart, Star } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../reducer/Cartslice";
 import { toggleWishlist } from "../../reducer/Wishlistslice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "../../lib/utils";
 
 const discountPercent = (original: number, discounted: number) =>
     Math.round(((original - discounted) / original) * 100);

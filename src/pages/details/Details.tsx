@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "../../components/ui/button";
+import { Separator } from "../../components/ui/separator";
 import { Heart, Minus, Plus, RotateCcw, Star, Truck } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +11,7 @@ import type { RootState } from "../../store/store";
 import { axiosRequest } from "../../utils/token";
 import { addToCart, updateQuantity } from "../../reducer/Cartslice";
 import { toggleWishlist } from "../../reducer/Wishlistslice";
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "../../lib/utils";
 
 export interface Product {
   id: number;
@@ -47,14 +47,12 @@ const Details = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const colors = useSelector((state: RootState) => state.colors.colors);
   const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
 
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState("M");
-  // const [selectedColor, setSelectedColor] = useState<number | null>(null);
 
   const cartItem = useSelector((state: RootState) =>
     state.cart.items.find((i) => i.id === product?.id)

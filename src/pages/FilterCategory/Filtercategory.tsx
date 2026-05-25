@@ -5,15 +5,15 @@ import { getProducts } from "../../api/Productapi";
 import Cards from "../../components/shared/Cards";
 import FilterSidebar from "./Filtersidebare";
 import { SlidersHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { ScrollArea } from "@/components/ui/scroll-area";
+} from "../../components/ui/sheet";
+import { ScrollArea } from "../../components/ui/scroll-area";
 import type { RootState } from "../../store/store";
 
 export default function FilterCategory() {

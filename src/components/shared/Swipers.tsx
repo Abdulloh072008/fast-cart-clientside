@@ -4,7 +4,7 @@ import img from "../../assets/img/hero_endframe__cvklg0xk3w6e_large 2-1.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "../../lib/utils";
 
 const slidesData = [
   {

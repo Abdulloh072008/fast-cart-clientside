@@ -1,21 +1,16 @@
-import { Heart, Search, ShoppingCart, User, Languages } from "lucide-react"
+import { Heart, Search, ShoppingCart, Languages } from "lucide-react"
+import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import logo from "../../../assets//img/Group 1116606595-1.png"
 import type { RootState } from "../../../store/store"
 import Navlist from "../../shared/Navlist"
 import { ModeToggle } from "../../shared/theme-provider/ModeToggle"
+import UserMenu from "../../shared/Usermenue"
 import { Input } from "../../ui/input"
 import MobileNav from "./MobileNav"
-import UserMenu from "../../shared/Usermenue"
-import { useTranslation } from "react-i18next"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../../ui/dropdown-menu"
 
 const Header = () => {
   const { t, i18n } = useTranslation();

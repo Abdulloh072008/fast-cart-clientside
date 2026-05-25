@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import { useFormik } from "formik";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +6,10 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { fetchProfile, saveProfile } from "../../api/Myaccountapi";
 import type { AppDispatch, RootState } from "../../store/store";
-import { getImageUrl } from "@/lib/utils";
+import { Label } from "../../components/ui/label";
+import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { getImageUrl } from "../../lib/utils";
 
 const MyAccount = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -68,7 +69,6 @@ const MyAccount = () => {
             </nav>
 
             <div className="flex flex-col lg:flex-row gap-8">
-                {/* Sidebar */}
                 <aside className="w-full lg:w-56 shrink-0">
                     <p className="text-sm font-semibold mb-2">Manage My Account</p>
                     <div className="pl-2 flex flex-col gap-1">
@@ -84,9 +84,7 @@ const MyAccount = () => {
                     <p className="text-sm font-semibold pt-4">My WishList</p>
                 </aside>
 
-                {/* Main card */}
                 <div className="flex-1 bg-white dark:bg-zinc-900 rounded-xl shadow-sm p-6 lg:p-8">
-                    {/* Avatar row */}
                     <div className="flex items-center gap-4 mb-6">
                         {profile.image ? (
                             <img

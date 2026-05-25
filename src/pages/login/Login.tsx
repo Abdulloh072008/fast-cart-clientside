@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+
 import { Eye, EyeOff } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
 import { useFormik } from "formik"
@@ -12,6 +10,9 @@ import { setCredentials } from "../../reducer/Myaccountslice"
 import { useDispatch } from "react-redux"
 import { fetchProfile } from "../../api/Myaccountapi"
 import { type AppDispatch } from "../../store/store"
+import { Label } from "../../components/ui/label"
+import { Input } from "../../components/ui/input"
+import { Button } from "../../components/ui/button"
 
 export default function Login() {
   const navigate = useNavigate()

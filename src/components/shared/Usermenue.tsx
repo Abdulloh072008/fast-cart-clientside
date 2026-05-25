@@ -7,10 +7,10 @@ import {
     DropdownMenuItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "../../components/ui/dropdown-menu";
 import { logout } from "../../reducer/Myaccountslice";
 import type { AppDispatch, RootState } from "../../store/store";
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "../../lib/utils";
 
 const UserMenu = () => {
     const dispatch = useDispatch<AppDispatch>();
