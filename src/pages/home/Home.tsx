@@ -17,13 +17,14 @@ import Newarrival from "../../components/shared/Newarrival";
 import Card from "../../components/shared/Card";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import type { AppDispatch, RootState } from "../../store/store";
 
 const Home = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch()
-  const products = useSelector(({ products }) => products.products);
-
-
+  const dispatch = useDispatch<AppDispatch>()
+  const products = useSelector(
+    (state: RootState) => state.products.products ?? []
+  );
   useEffect(() => {
     dispatch(getProducts({}));
   }, [dispatch]);

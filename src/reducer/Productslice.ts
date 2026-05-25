@@ -13,17 +13,17 @@ interface IProduct {
 }
 
 interface IProductState {
-  products: IProduct[];
-  loading: boolean;
-  error: string | null;
-  initialized: boolean;
+    products: IProduct[];
+    loading: boolean;
+    error: string | null;
+    initialized: boolean;
 }
 
 const initialState: IProductState = {
-  products: [],
-  loading: false,
-  error: null,
-  initialized: false,
+    products: [],
+    loading: false,
+    error: null,
+    initialized: false,
 };
 
 export const productSlice = createSlice({
@@ -38,7 +38,7 @@ export const productSlice = createSlice({
             })
             .addCase(getProducts.fulfilled, (state, action) => {
                 state.loading = false;
-                state.products = action.payload;
+                state.products = action.payload?.data ?? action.payload ?? [];
                 state.initialized = true;
             })
             .addCase(getProducts.rejected, (state) => {

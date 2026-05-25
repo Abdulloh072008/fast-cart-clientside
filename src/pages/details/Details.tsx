@@ -1,17 +1,17 @@
-import { Button } from "../../components/ui/button";
-import { Separator } from "../../components/ui/separator";
 import { Heart, Minus, Plus, RotateCcw, Star, Truck } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getColors } from "../../api/Colorapi";
 import { getProducts } from "../../api/Productapi";
 import Cards from "../../components/shared/Cards";
-import type { RootState } from "../../store/store";
-import { axiosRequest } from "../../utils/token";
+import { Button } from "../../components/ui/button";
+import { Separator } from "../../components/ui/separator";
+import { getImageUrl } from "../../lib/utils";
 import { addToCart, updateQuantity } from "../../reducer/Cartslice";
 import { toggleWishlist } from "../../reducer/Wishlistslice";
-import { getImageUrl } from "../../lib/utils";
+import type { AppDispatch, RootState } from "../../store/store";
+import { axiosRequest } from "../../utils/token";
 
 export interface Product {
   id: number;
@@ -44,10 +44,9 @@ const SIZES = ["XS", "S", "M", "L", "XL"];
 
 const Details = () => {
   const { productid } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
 
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -55,11 +54,14 @@ const Details = () => {
   const [selectedSize, setSelectedSize] = useState("M");
 
   const cartItem = useSelector((state: RootState) =>
-    state.cart.items.find((i) => i.id === product?.id)
+    product
+      ? state.cart.items.find((i) => i.id === product.id)
+      : undefined
   );
 
-  const qty = cartItem?.quantity || 1;
-  const isInWishlist = wishlistItems.some((item) => item.id === product?.id);
+const qty = cartItem ? cartItem.quantity : 1;  const wishlistItems = useSelector(
+    (state: RootState) => state.wishlist.items
+  );
 
   async function getProductById() {
     try {
@@ -77,13 +79,13 @@ const Details = () => {
       setLoading(false);
     }
   }
-
+  
   useEffect(() => {
     if (productid) getProductById();
     dispatch(getProducts({}));
     dispatch(getColors());
-  }, [productid]);
-
+  }, [productid, dispatch]);
+  
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -91,7 +93,7 @@ const Details = () => {
       </div>
     );
   }
-
+  
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center flex-col gap-4">
@@ -102,6 +104,10 @@ const Details = () => {
       </div>
     );
   }
+  
+ const isInWishlist = wishlistItems.some(
+  (item) => item.id === product.id
+);
 
   const displayPrice = product.hasDiscount
     ? product.discountPrice
@@ -234,19 +240,28 @@ const Details = () => {
             <Button onClick={handleBuyNow} className="bg-[#DB4444] hover:bg-[#c33d3d] py-6 px-10 text-white rounded">
               Buy Now
             </Button>
-            
-            <button 
-              onClick={() => dispatch(toggleWishlist({
-                id: String(product.id),
-                productName: product.productName,
-                price: product.price,
-                discountPrice: product.discountPrice,
-                hasDiscount: product.hasDiscount,
-                image: product.image
-              }))}
+
+            <button
+              onClick={() =>
+                dispatch(
+                  toggleWishlist({
+                    id: product.id,
+                    productName: product.productName,
+                    price: product.price,
+                    discountPrice: product.discountPrice,
+                    hasDiscount: product.hasDiscount,
+                    image: product.image,
+                  })
+                )
+              }
               className="border w-11 h-11 flex items-center justify-center hover:bg-muted transition-colors"
             >
-              <Heart className={`w-5 h-5 transition-colors ${isInWishlist ? "fill-[#DB4444] text-[#DB4444]" : "text-black"}`} />
+              <Heart
+                className={`w-5 h-5 transition-colors ${isInWishlist
+                    ? "fill-[#DB4444] text-[#DB4444]"
+                    : "text-black"
+                  }`}
+              />
             </button>
           </div>
 
