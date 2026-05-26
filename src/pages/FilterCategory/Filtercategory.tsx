@@ -14,11 +14,11 @@ import {
   SheetTrigger,
 } from "../../components/ui/sheet";
 import { ScrollArea } from "../../components/ui/scroll-area";
-import type { RootState } from "../../store/store";
+import type { AppDispatch, RootState } from "../../store/store";
 
 export default function FilterCategory() {
   const { categoryId, subCategoryId } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { categories = [] } = useSelector((state: RootState) => state.categories);
 
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function FilterCategory() {
         </aside>
 
         <div className="flex-1 min-w-0">
-          <Cards />
+          <Cards limit={20} />
         </div>
       </div>
     </div>
